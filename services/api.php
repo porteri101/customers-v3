@@ -52,7 +52,7 @@
             
             if($r->num_rows > 0) {
 						$result = $r->fetch_assoc();	
-                        #header("Auth-token : token1234");
+                        header("Auth-token : token1234");
 						$this->response($this->json($result), 200);
                 #$this->response("OK", 200);
 					} 
