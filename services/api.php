@@ -51,10 +51,10 @@
             $r = $this->mysqli->query($query) or die($this->mysqli->error.__LINE__);
             
             if($r->num_rows > 0) {
-						#$result = $r->fetch_assoc();	
+						$result = $r->fetch_assoc();	
                         #header("Auth-token : token1234");
-						#$this->response($this->json($result), 200);
-                $this->response("OK", 200);
+						$this->response($this->json($result), 200);
+                #$this->response("OK", 200);
 					} 
                     else { 
 					   $this->response($this->json($error), 401);
