@@ -43,7 +43,7 @@
 				$this->response('',406);
 			}
             
-            $this->response($this->json("OK"), 200)
+            $this->response($this->json("OK"), 200);
                 
        /*      $headers = getallheaders();
            
