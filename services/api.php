@@ -49,18 +49,18 @@
             $password = "password123"; #$headers['Auth-Password'];
             $query="SELECT uid, name, email FROM users WHERE email = '$email' AND password = '".md5($password)."' LIMIT 1";    
             $r = $this->mysqli->query($query) or die($this->mysqli->error.__LINE__);
-            $result = $r->fetch_assoc();
             
-       /*     if($r->num_rows > 0) {
-						$result = $r->fetch_assoc();	
+            if($r->num_rows > 0) {
+						#$result = $r->fetch_assoc();	
                         #header("Auth-token : token1234");
-						$this->response($this->json($result), 200);
+						#$this->response($this->json($result), 200);
+                $this->response($this->"OK", 200)
 					} 
                     else { 
 					   $this->response($this->json($error), 401);
-                    }  */
+                    }  
             
-            $this->response($this->"OK", 200)
+            
             
             /*
 			if(!empty($email) and !empty($password)){
