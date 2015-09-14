@@ -16,7 +16,7 @@
 
                 
             echo 'host: ' . DB_HOST . '<br>';
-            ehco 'port: ' .DB_PORT . '<br>';
+            echo 'port: ' . DB_PORT . '<br>';
             echo 'user: ' . DB_USER . '<br>';
             echo 'password: ' . DB_PASS . '<br>';
             echo 'db: ' . DB_BASE . '<br>';
