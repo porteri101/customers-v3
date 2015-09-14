@@ -43,10 +43,10 @@
 				$this->response('',406);
 			}
             
-            $headers = getallheaders();
+           # $headers = getallheaders();
             
-            $email = $headers['Auth-User'];		
-            $password = $headers['Auth-Password'];
+            $email = "user1@customers.com"; #$headers['Auth-User'];		
+            $password = "password123"; #$headers['Auth-Password'];
 
 			if(!empty($email) and !empty($password)){
 				if(filter_var($email, FILTER_VALIDATE_EMAIL)){
