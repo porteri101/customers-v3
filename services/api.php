@@ -43,7 +43,7 @@
 				$this->response('',406);
 			}
                
-            #$headers = getallheaders();
+            $headers = getallheaders();
            
             $email = "user1@customers.com"; #$headers['Auth-User'];		
             $password = "password123"; #$headers['Auth-Password'];
