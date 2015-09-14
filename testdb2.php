@@ -1,6 +1,6 @@
 <?php
 
-    require_once("./services/config.php");
+    require_once("./src/config.php");
 
     //comment
     class DBTest {
