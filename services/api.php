@@ -54,7 +54,7 @@
 						#$result = $r->fetch_assoc();	
                         #header("Auth-token : token1234");
 						#$this->response($this->json($result), 200);
-                $this->response($this->"OK", 200);
+                $this->response("OK", 200);
 					} 
                     else { 
 					   $this->response($this->json($error), 401);
