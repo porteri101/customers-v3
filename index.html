@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app='DellWorldCustomersApp'>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <script src='cui/js/cui-vendor.min.js'></script>
+    <script src='cui/js/cui.min.js'></script>
+
+    <script src="app/app.js"></script>
+    <script src="app/services/values.js"></script>
+    <script src="app/services/userService.js"></script>
+    <script src="app/services/authService.js"></script>
+    <script src="app/services/customerService.js"></script>
+    <script src="app/services/httpResponseInterceptor.js"></script>
+
+    <script src="app/controllers/applicationController.js"></script>
+    <script src="app/controllers/startScreenController.js"></script>
+    <script src="app/controllers/applicationFrameController.js"></script>
+    <script src="app/controllers/aboutBoxController.js"></script>  
+    <script src="app/controllers/customerController.js"></script>   
+    <script src="app/controllers/homeController.js"></script>  
+    <script src="app/controllers/myProfileController.js"></script>  
+
+    <script src="app/filters/filters.js"></script>
+    
+    <link rel="stylesheet" href="cui/css/cui.min.css">
+    <link rel="stylesheet" href="cui/css/custom.css">
+
+    <title>Customer Database</title>
+
+</head>
+<body ng-controller='applicationController'>
+    
+    <div ng-controller="startScreenController" ng-if='!userService.isAuthenticated'>
+        <cui-start-screen config='startScreenSettings'
+                      on-sign-in='onSignIn(userData)'
+                      show-message='true'>
+            <span ng-switch='settings.isSpinning'>
+                <span ng-switch-when='true'>
+                    Welcome, {{userService.userName}}! Please wait ...
+            </span>
+            <span ng-switch-default>
+                <cui-icon icon='warning-sign' color='yellow'></cui-icon> Please login with your credentials.
+                </span>
+            </span>
+        </cui-start-screen>
+    </div>
+    <div ng-controller="applicationFrameController" ng-if='userService.isAuthenticated'>
+        <cui-application-frame application-name='{{applicationInfo.name}}'
+                           application-subname='{{applicationInfo.version}}'
+                           navigation-items='navItems'
+                           masthead-show-controls=true>
+            <div cui-controls>
+                <cui-button ng-controller='myProfileController' ng-click='showMyProfile()'>My Profile</cui-button>
+                <cui-button ng-controller='aboutBoxController' ng-click='showAboutBox()'>About</cui-button>
+                <cui-button logout ng-click='logout()'>Logout</cui-button>
+            </div>
+
+            <div cui-content>
+                <div ng-view></div>
+            </div>
+        </cui-application-frame>
+    </div>    
+</body>
+</html>

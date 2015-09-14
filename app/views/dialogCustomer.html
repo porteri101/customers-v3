@@ -1,0 +1,92 @@
+<cui-pane class='cui-unit cui-two-thirds' cui-title={{dialogHeading}} icon='user' collapsible='false'>
+
+    <form name="customerForm" class='cui-form-stacked' novalidate ng-submit="ok(customerForm)">
+    <div class='cui-form-group'>
+            <label for='name'>Name</label>
+            <cui-textbox type='text'
+                         name='name'
+                         ng-model='customer.customerName'
+                         ng-pattern='thirtytwoChars'
+                         placeholder='up to 32 characters'
+                         required>
+            </cui-textbox>
+        </div>
+
+        <div class='cui-form-group'>
+            <label for='email'>Email</label>
+            <cui-textbox type='email'
+                         name='email'
+                         ng-model='customer.email'
+                         placeholder='valid email address'
+                         required>
+            </cui-textbox>
+        </div>
+        
+        <div class='cui-form-group'>
+            <label for='address'>Address</label>
+            <cui-textbox type='text'
+                         name='address'
+                         ng-model='customer.address'
+                         ng-pattern='thirtytwoChars'
+                         placeholder='up to 32 characters'
+                         required>
+            </cui-textbox>
+        </div>
+            
+        <div class='cui-form-group'>
+            <label for='city'>City</label>
+            <cui-textbox type='text'
+                         name='city'
+                         ng-model='customer.city'
+                         ng-pattern='thirtytwoChars'
+                         placeholder='up to 32 characters'
+                         required>
+            </cui-textbox>
+        </div>
+            
+            
+        <div class='cui-form-group'>
+            <label for='state'>State</label>
+            <cui-textbox type='text'
+                         name='state'
+                         ng-model='customer.state'
+                         ng-pattern='thirtytwoChars'
+                         placeholder='up to 32 characters'
+                         required>
+            </cui-textbox>
+        </div>
+            
+            
+        <div class='cui-form-group'>
+            <label for='zipCode'>Zip Code</label>
+            <cui-textbox type='zip'
+                         name='zipCode'
+                         ng-model='customer.postalCode'
+                         ng-pattern='zip'
+                         placeholder='valid zip code'
+                         required>
+            </cui-textbox>
+        </div>
+            
+            
+        <div class='cui-form-group'>
+            <label for='country'>Country</label>
+            <cui-textbox type='text'
+                         name='country'
+                         ng-model='customer.country'
+                         ng-pattern='thirtytwoChars'
+                         placeholder='up to 32 characters'
+                         required>
+            </cui-textbox>
+        </div> 
+
+        <footer>
+            <menu>
+                <cui-button type="submit" cui-type="primary">Ok</cui-button>
+                <cui-button cui-type="warning" ng-click="cancel(customerForm)">Cancel</cui-button>
+            </menu>
+        </footer>
+        
+    </form>
+        
+</cui-pane>

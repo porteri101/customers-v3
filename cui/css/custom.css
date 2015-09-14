@@ -1,0 +1,15 @@
+﻿th {
+    text-align: left;
+}
+
+.donut-text
+{
+text-align:center;
+cursor:pointer
+}
+.donut-text h5
+{
+margin-bottom: 5px;
+margin-top: 0;
+}
+.donut-text span {font-size: 12px;}

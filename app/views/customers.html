@@ -1,0 +1,57 @@
+<div>
+    <h2>Customers</h2>
+    <div class='cui-grid'>
+        <div class='cui-unit cui-one-half'>
+            <cui-button ng-click="addCustomer()" cui-type='success'>
+                <cui-icon icon='user'></cui-icon> Add a Customer
+            </cui-button>
+        </div>
+    </div>
+
+    <div class='cui-grid'>
+       <!-- <div class='cui-unit cui-1-1'>
+            <cui-table rows="rowCollection"
+                        columns="columnCollection"
+                        config="globalConfig">
+            </cui-table>
+        </div> -->
+        
+        <table st-table="displayedCustomers" st-safe-src="rowCollection" class="cui-table cui-table-striped" style='width: 100%'>
+            <thead>
+                <tr>
+                    <th st-sort='customerName'>Name</th>
+                    <th st-sort='email'>Email</th>
+                    <th st-sort='address'>Address</th>
+                    <th st-sort='city'>City</th>
+                    <th st-sort='postalCode'>Zip Code</th>
+                    <th st-sort='country'>Country</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="row in displayedCustomers">
+                <td>{{row.customerName}}</span></td>
+                <td>{{row.email}}</td>
+                <td>{{row.address}}</td>
+                <td>{{row.city}}</td>
+                <td>{{row.postalCode}}</td>
+                <td>{{row.country}}</td>
+                <td>
+                    <cui-button ng-click="doActionEditCustomer('{{row.customerNumber}}')" cui-type='link'>
+                        <cui-icon icon='edit' color='green'></cui-icon>
+                    </cui-button>
+                </td>
+                <td>
+                    <cui-button ng-click="doActionDeleteCustomer('{{row.customerNumber}}', '{{row.customerName}}' )" cui-type='link'>
+                        <cui-icon icon='trash' color='red'></cui-icon>
+                    </cui-button>
+                </td>
+            </tr>
+          </tbody>
+    </table>
+        
+    </div>
+    <div id='customer-alerts'></div>
+</div>
+

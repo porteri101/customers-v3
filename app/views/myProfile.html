@@ -1,0 +1,67 @@
+
+<!--<div class='cui-grid'> -->
+    <h2>My Profile</h2>
+
+        <form name="profileForm" novalidate>
+            <div class='cui-grid cui-wider'>
+               <!-- <div class='cui-unit cui-whole'> -->
+
+                    <div class='cui-grid cui-whole'>
+                        <div class='cui-unit cui-half'>
+                            <label>User Name</label>
+                        </div>
+                        <div class='cui-unit cui-half'>
+                            <strong>{{userService.name}}</strong>
+                        </div>
+                    </div>
+
+                    <div id='viewPassword' ng-if='!passwordEdit' class='cui-grid cui-whole'>
+                        <div class='cui-unit cui-half'>Password</div>
+                        <div class='cui-unit cui-half'>
+                            <label>********</label>
+                            <a href='' ng-click='showPassword(true)'>change</a>
+                        </div>
+                    </div>
+
+                    <div ng-if='passwordEdit' class='cui-grid cui-whole'>
+                        <div class='cui-unit cui-half'>Password</div>
+                        <div class='cui-unit cui-half'>
+                            <cui-textbox type='password'
+                                         id='password'
+                                         name='password'
+                                         ng-model='userService.password'
+                                         ng-pattern='thirtytwoChars'
+                                         required>
+                            </cui-textbox>
+                        </div>
+
+                        <div ng-if='passwordEdit' class='cui-grid cui-whole'>
+                            <div class='cui-unit cui-half'>Confirm Password</div>
+                            <div class='cui-unit cui-half'>
+                                <cui-textbox type='password'
+                                             id='confirmPassword'
+                                             name='confirmPassword'
+                                             ng-pattern='thirtytwoChars'
+                                             ng-model='userService.confirmPassword'
+                                             nx-equal-ex="userService.password"
+                                             required>
+                                </cui-textbox>
+                                <div>
+                                    <span ng-show="profileForm.confirmPassword.$error.nxEqualEx">Passwords are not equal!</span>
+                                </div>
+                            </div>
+
+                            <div ng-if='passwordEdit' class='cui-grid cui-whole'>
+                                <div class='cui-unit cui-half'></div>
+                                <div class='cui-unit cui-half'>
+                                    <cui-button cui-type='success' ng-disabled='profileForm.$invalid' ng-click='changePassword()'><cui-icon icon=' save'></cui-icon>Update</cui-button>
+                                    <a href='' ng-click='showPassword(false)'>Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    <!--</div>-->
+                </div>
+            </div>
+            <div id='profile-alerts'></div>
+        </form> 
+<!--</div>-->
