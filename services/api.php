@@ -43,8 +43,10 @@
 				$this->response('',406);
 			}
             
-           # $headers = getallheaders();
-            
+            $this->response($this->json("OK"), 200)
+                
+       /*      $headers = getallheaders();
+           
             $email = "user1@customers.com"; #$headers['Auth-User'];		
             $password = "password123"; #$headers['Auth-Password'];
 
@@ -71,6 +73,8 @@
 			     $error = array('status' => "Failed", "msg" => "Invalid Email address or Password");
 			     $this->response($this->json($error), 400); 
             }
+            
+            */
 		}
 		
 		private function customers(){	
