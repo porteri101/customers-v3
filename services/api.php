@@ -42,14 +42,23 @@
 			if($this->get_request_method() != "GET"){
 				$this->response('',406);
 			}
-            
-            $this->response($this->json("OK"), 200);
-                
-       /*      $headers = getallheaders();
+               
+            #$headers = getallheaders();
            
             $email = "user1@customers.com"; #$headers['Auth-User'];		
             $password = "password123"; #$headers['Auth-Password'];
-
+            $query="SELECT uid, name, email FROM users WHERE email = '$email' AND password = '".md5($password)."' LIMIT 1";    
+            $r = $this->mysqli->query($query) or die($this->mysqli->error.__LINE__);
+            if($r->num_rows > 0) {
+						$result = $r->fetch_assoc();	
+                        header("Auth-token : token1234");
+						$this->response($this->json($result), 200);
+					} 
+                    else { 
+					   $this->response($this->json($error), 401);
+                    }
+            
+            /*
 			if(!empty($email) and !empty($password)){
 				if(filter_var($email, FILTER_VALIDATE_EMAIL)){
 					$query="SELECT uid, name, email FROM users WHERE email = '$email' AND password = '".md5($password)."' LIMIT 1";    
